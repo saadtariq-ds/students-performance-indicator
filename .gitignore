@@ -182,3 +182,5 @@ cython_debug/
 
 # Other Files/Folders
 catboost_info/
+artifacts/
+logs/

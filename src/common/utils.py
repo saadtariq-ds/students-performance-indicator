@@ -1,6 +1,9 @@
 import os
+import sys
 import yaml
+import dill
 from pathlib import Path
+from src.common.exception import CustomException
 from src.common.logger import logging
 
 
@@ -22,8 +25,7 @@ def read_yaml(path_to_yaml: Path):
             return content
 
     except Exception as e:
-        logging.error(f"Error reading YAML file '{path_to_yaml}': {e}")
-        raise e
+        raise CustomException(e, sys)
     
 
 def create_directories(path_to_directories: list, verbose=True):
@@ -39,5 +41,19 @@ def create_directories(path_to_directories: list, verbose=True):
             os.makedirs(path, exist_ok=True)
             logging.info(f"Directory '{path}' created successfully or already exists.")
         except Exception as e:
-            logging.error(f"Error creating directory '{path}': {e}")
-            raise ValueError(f"Error creating directory '{path}': {e}")
+            raise CustomException(e, sys)
+        
+
+def save_object(file_path: Path, file_object):
+    """
+    Saves data to a binary file using pickle.
+
+    Args:
+        file_object (Any): preprocessor_object.
+        file_path (Path): The path to the pickle file.
+    """
+    try:
+        with open(file=file_path, mode="wb") as file:
+            dill.dump(file_object, file)
+    except Exception as e:
+            raise CustomException(e, sys)

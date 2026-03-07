@@ -14,3 +14,8 @@ class DataTransformationConfig:
     root_directory: str
     preprocessor_object_file_path: str
     all_schema: dict
+
+@dataclass
+class ModelTrainerConfig:
+    root_directory: str
+    trained_model_file_path: str

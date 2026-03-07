@@ -61,23 +61,23 @@ class DataTransformation:
 
             target_column = self.schema["target_column"]
 
-            X_train = train_df.drop(columns=[target_column], axis=1)
-            y_train = train_df[target_column]
-            X_test = test_df.drop(columns=[target_column], axis=1)
-            y_test = test_df[target_column]
+            input_feature_train_df = train_df.drop(columns=[target_column], axis=1)
+            target_feature_train_df = train_df[target_column]
+            input_feature_test_df = test_df.drop(columns=[target_column], axis=1)
+            target_feature_test_df = test_df[target_column]
 
             logging.info("Data is Split into Training and Test Sets")
 
             logging.info("Applying Preprocssor Object on Training and Test DataFrame")
-            X_train_array = preprocessor.fit_transform(X_train)
-            X_test_array = preprocessor.transform(X_test)
+            input_feature_train_arr = preprocessor.fit_transform(input_feature_train_df)
+            input_feature_test_arr = preprocessor.transform(input_feature_test_df)
             logging.info("Preprocessor is Applied on Training and Test DataFrame")
 
             train_array = np.c_[
-                X_train_array, np.array(X_train)
+                input_feature_train_arr, np.array(target_feature_train_df)
             ]
             test_array = np.c_[
-                X_test_array, np.array(X_test)
+                input_feature_test_arr, np.array(target_feature_test_df)
             ]
 
             save_object(

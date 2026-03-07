@@ -2,7 +2,8 @@ import os
 from src.constants import CONFIG_FILE_PATH, SCHEMA_FILE_PATH
 from src.common.utils import read_yaml, create_directories
 from src.entity.config_entity import (
-    DataIngestionConfig, DataTransformationConfig
+    DataIngestionConfig, DataTransformationConfig,
+    ModelTrainerConfig
 )
 
 class ConfigurationManager:
@@ -41,3 +42,15 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config_file_path["model_training"]
+
+        create_directories([config["root_directory"]])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_directory=config["root_directory"],
+            trained_model_file_path=config["trained_model_file_path"]
+        )
+
+        return model_trainer_config

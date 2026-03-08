@@ -24,6 +24,7 @@ The dataset contains information about students and their exam scores.
 ## ⚙️ Project Workflow
 
 1️⃣ Data Collection
+
 2️⃣ Data Preprocessing
 3️⃣ Exploratory Data Analysis (EDA)
 4️⃣ Feature Engineering

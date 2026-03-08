@@ -26,20 +26,31 @@ The dataset contains information about students and their exam scores.
 1️⃣ Data Collection
 
 2️⃣ Data Preprocessing
+
 3️⃣ Exploratory Data Analysis (EDA)
+
 4️⃣ Feature Engineering
+
 5️⃣ Model Training
+
 6️⃣ Model Evaluation
+
 7️⃣ Model Comparison
 
 ## 🤖 Machine Learning Models Used
 
 1️⃣ Linear Regression
+
 2️⃣ Decision Tree
+
 3️⃣ Random Forest
+
 4️⃣ Ada Boost
+
 5️⃣ Gradient Boosting
+
 6️⃣ XgBoost
+
 7️⃣ Catboost
 
 # ⚙️ Setup & Run Locally

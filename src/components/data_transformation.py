@@ -90,16 +90,7 @@ class DataTransformation:
                 train_array,
                 test_array,
                 self.data_transformation_config.preprocessor_object_file_path
-
             )
 
         except Exception as e:
             raise CustomException(e, sys)
-        
-if __name__ == "__main__":
-    data_ingestion_config = ConfigurationManager().get_data_ingestion_config()
-    train_path = data_ingestion_config.train_data_path
-    test_path = data_ingestion_config.test_data_path
-
-    data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_path=train_path, test_path=test_path)

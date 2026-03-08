@@ -1,7 +1,5 @@
-import os
 import sys
 import pandas as pd
-from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
 from src.config.configuration import ConfigurationManager
 from src.common.exception import CustomException
@@ -32,7 +30,3 @@ class DataIngestion:
             )
         except Exception as e:
             raise CustomException(e, sys)
-        
-if __name__ == "__main__":
-    data_ingestion = DataIngestion()
-    data_ingestion.initiate_data_ingestion()

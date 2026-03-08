@@ -76,7 +76,7 @@ pip install -r requirements.txt
 python src\pipeline\training_pipeline.py
 ```
 
-## 5️⃣ Run Flask App
+## 5️⃣ Run Flask Application
 ```bash
 python app.py
 ```
